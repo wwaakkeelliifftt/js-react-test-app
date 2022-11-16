@@ -31,7 +31,7 @@ export function CreateProduct({onCreate}: CreateProductProps) {
     }
 
     productData.title = value
-    const response = await axios.post<IProduct>('https://fakestoreapi.com/products?_limit=4', productData)
+    const response = await axios.post<IProduct>('https://fakestoreapi.com/products', productData)
     onCreate(response.data)
   }
 
