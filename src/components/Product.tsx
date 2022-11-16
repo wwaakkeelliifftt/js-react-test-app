@@ -9,7 +9,7 @@ interface ProductProps {
 export function Product({ product }: ProductProps) {
   const [details, setDetails] = useState(false)
   const btnBgClassName = details ? 'bg-yellow-400' : 'bg-blue-400'
-  const btnClasses = ['py-2 px-3 border', btnBgClassName]
+  const btnClasses = ['py-2 px-3 border hover:text-gray-700', btnBgClassName]
   const fontBg = {
     "LightBlue": "#c4d6e0",
     "LightGray": "#ececec"
@@ -25,11 +25,11 @@ export function Product({ product }: ProductProps) {
             onClick={ () => setDetails(!details) } >
           { details ? 'Hide description' : 'Show description' }
         </button>
-        {details && <div style={{background: fontBg.LightGray}}>
+        {details && <div className='m-2 border-4 flex' style={{background: fontBg.LightGray}}>
           <p className="font-light">{ product.description }</p>
           <hr className='my-1 ' />
-          <p style={{ background: fontBg.LightBlue }}>
-            Rate: <span style={{ fontWeight: 'bold' }}>{ product.rating.rate }</span>
+          <p className='text-center' style={{ background: fontBg.LightBlue }}>
+            Rate: <span style={{ fontWeight: 'bold' }}>{ product.rating?.rate }</span>
           </p>
         </div>}
       </div>
